@@ -5,11 +5,10 @@
         <section class="list-wrapper">
             <draggable
                 :options="{ group: 'lists'}"
-                group="lists"
                 ghostClass="ghost"
-                class="list-graggable"
+                class="list-draggable"
             >
-                <div class="list-card" v-for="(list, index) in lists" :key="index">
+                <div class="list-card" v-for="(list, index) in lists" :key="list.id">
                     <label class="list-header">{{ list.name }}</label>
                     <div class="list-content">
                         <CardsList :listId="list.id" :listName="list.name" />
@@ -33,12 +32,12 @@
 <script>
 import { VueDraggableNext } from "vue-draggable-next";
 
-import CardsList from "@/components/CardsList.vue";
-import Card from "@/components/Card.vue";
-import Overlay from "@/components/Overlay.vue";
-import Popup from "@/componenets/Popup.vue";
+import CardsList from "./CardsList.vue";
+import Card from "./Card.vue";
+import Overlay from "./Overlay.vue";
+import Popup from "./Popup.vue";
 
-import { useListStore } from "@stores/index";
+import { useListStore } from "@/stores/index";
 import { mapStores } from "pinia";
     export default {
         components: {
@@ -56,7 +55,7 @@ import { mapStores } from "pinia";
         computed: {
             ...mapStores(useListStore),
             lists() {
-                return this.boardStore.lists; 
+                return this.boardStore.getLists; 
             }
         },
         methods: {
