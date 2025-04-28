@@ -1,10 +1,10 @@
 <template>
     <div>
-        <transition>
+        <Transition>
             <div v-if="overlayIsActive" class="overlay" @click="closeOverlay">
 
             </div>
-        </transition>
+        </Transition>
     </div>
 </template>
 
