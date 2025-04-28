@@ -61,16 +61,16 @@ export const useListStore = defineStore("board", {
     },
     getters: {
         // Get the last listId from the state
-        lastListId: (state) => state.lastListId,
+        getLastListId: (state) => state.lastListId,
         // Get the last cardId from the state
-        lastCardId: (state) => state.lastCardId,
+        getLastCardId: (state) => state.lastCardId,
         // Get the lists from the state
-        lists: (state) => state.lists,
+        getLists: (state) => state.lists,
         // Get the cards from the state
-        cards: (state) => state.cards,
+        getCards: (state) => state.cards,
         // Get the overlay from the state
-        overlay: (state) => state.overlay,
+        getOverlay: (state) => state.overlay,
         // Get the current data from the state
-        currentData: (state) => state.currentData
+        getCurrentData: (state) => state.currentData
     }
 }) 
