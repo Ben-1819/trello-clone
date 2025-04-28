@@ -1,7 +1,7 @@
 <template>
     <div>
         <Transition>
-            <div v-if="overlay" class="modal">
+            <div v-if="this.boardStore.getOverlay" class="modal">
                 <h1>List Name : {{ currentData.listName }}</h1>
                 <input :placeholder="currentData.name" v-model="cardName">
                 <div class="container-button">

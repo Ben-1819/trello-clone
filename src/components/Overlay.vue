@@ -15,7 +15,7 @@ import { mapStores } from "pinia";
         computed: {
             ...mapStores(useListStore),
             overlayIsActive() {
-                return this.boardStore.overlay
+                return this.boardStore.getOverlay
             },
         },
         methods: {

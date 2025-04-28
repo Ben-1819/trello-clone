@@ -4,7 +4,7 @@
             <span 
                 class="element-card"
                 v-for="(card, index) in cards"
-                :key="index"
+                :key="card.id"
                 @click="togglePopup(card)"
             >
                 {{ card.name }}
@@ -33,7 +33,7 @@ import { mapStores } from "pinia";
         computed: {
             ...mapStores(useListStore),
             cards(){
-                const cardFilteredByListId = this.boardStore.cards;
+                const cardFilteredByListId = this.boardStore.getCards;
                 return cardFilteredByListId.filter((card) => {
                     if(card.listId === this.listId){
                         return true;
@@ -43,7 +43,7 @@ import { mapStores } from "pinia";
                 });
             },
             overlayIsActive(){
-                return this.boardStore.overlay;
+                return this.boardStore.getOverlay;
             },
         },
         methods: {
@@ -52,10 +52,10 @@ import { mapStores } from "pinia";
                     listId: this.listId,
                     listName: this.listName,
                     id: data.id,
-                    name: data.name.
+                    name: data.name,
                 };
                 this.boardStore.toggleOverlay();
-                this.store.openForm(currentData);
+                this.boardStore.openForm(currentData);
             },
         },
     }
